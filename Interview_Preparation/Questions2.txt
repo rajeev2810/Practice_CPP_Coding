@@ -1,0 +1,68 @@
+class Employee
+{
+int empId;
+string role;
+string doj;
+
+filltheDept()
+{
+
+}
+
+
+void getEmployee()
+{
+	auto f = [Employee::empId](){return empId % 2};
+}
+
+}
+
+};
+
+
+class A: public Employee
+{
+int age;
+	void getEmployee()
+	{
+	}
+
+]
+class PromotionCriteria
+{
+Employee &emp;
+
+	
+
+	void Calculatethe Promotion(Employee &emp)
+	{
+	
+	}
+}
+
+int i = 0;
+int UpdateValue()
+{
+	int a = i +1;
+	return a;
+}
+
+
+main()
+{
+vector<Employee> e{};
+unordered_map<Employee, char> a;
+
+Employee emp (1, "Test", 10); 
+
+e.push_back(emp);
+
+std::unique_ptr<Employee> emp = std::make_unique<Employee>(); 
+std::unique_ptr<Employee> emp2 = std::move(emp);
+
+std::thread t1(UpdateValue());
+t1.join();
+}
+
+
+27346209830709182346

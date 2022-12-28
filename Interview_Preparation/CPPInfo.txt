@@ -1,0 +1,25 @@
+What is the most memory-efficient way to store a large group of strings in memory, with features similar to those in vector<string>, i.e.,
+
+1. O(1) random access by record number (as with vector<string>) is required for retrievals.
+2. Record numbers are from 0 to n-1.
+3. Strings must be modifiable, including their lengths and contents, as with vector<string>.
+
+Let's make this more concrete so we can compare implementations, by adding the following details:
+1. The strings are not compressible. They are binary data with no limitation on character set.
+2. They are variable-length with length uniformly distributed in the range of 0-50 bytes.
+3. The capacity must be at least 1 billion strings but this is a run-time parameter.
+4. All strings are assumed to fit in memory simultaneously.
+
+I suspect many people will say vector<string> will be the best given these constraints, but surprisingly this is not true. #questionforgroup
+
+Note 1: Thanks for all the feedback! I've clarified the requirements accordingly.
+
+Ok, here are some experimental results, in each case processing 1 billion strings averaging 25 bytes in length:
+1. std::vector<std::string>
+Total storage required: 72,206,757,888 bytes
+Overall TPS, including deallocation time: 2,152,213
+2. TwoMisses hash table
+Total storage required: 36,104,568,832 bytes
+Overall TPS, including deallocation time: 1,693,514
+
+So we are getting about 78% of the speed with half the storage.

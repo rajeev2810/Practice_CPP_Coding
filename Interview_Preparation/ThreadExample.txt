@@ -1,0 +1,73 @@
+mutex mu;
+int count;
+
+PrintOdd()
+{
+  lock_guard(mutex) locker mu;
+  cd.wait() {
+  while (count < 10)
+       if (count % 2 == 1)
+	       system.out.println(count);
+		   count++
+		   }
+		   }
+		   
+		   locker.unlock();
+		   cd.notify_all();
+  
+}
+
+
+PrintEven()
+{
+lock_guard(mutex) locker mu;
+  while (count < 10)
+       if (count % 2 == 0)
+	       system.out.println(count);
+		   count++
+		   }
+		   
+		   locker.unlock();
+}
+
+main()
+{
+thread t1(PrintOdd(), normal);
+thread t2(PrintEvenn(),high);
+}
+
+1. Library -> Books
+
+2. Readers-> FrequentReaders, RareReaders
+
+3. Cost-> Borrowing, Sale
+
+4. 
+
+class Library 
+
+
+class Books: Library
+{
+attributes: name
+attributes: Type, language;
+	Type* typeofBook(string type)
+}
+
+class Reader {}
+Class FrequentReaders: Readers{
+}
+class RareReaders: Readers {
+}
+
+Class Cost {
+attributes: Borrowing, Sale;
+map -> bookname and the type
+
+costof the bock(type)
+{
+	
+}
+
+
+}

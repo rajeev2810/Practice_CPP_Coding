@@ -1,0 +1,55 @@
+A City has reported corona cases in an array where numCases[i] is the number of cases on the ith Day.
+You need to find the from_day and to_day which saw the maximum increase in corona cases.
+
+Input: Cases = [79,11,54,32,69,40]
+Output: 69-11 = 58. from_day = 2, to_day = 5
+
+Explanation: Cases on Day 2 = 11. Cases on Day 5 = 69. Max Increase = 69-11 = 58.
+
+public int maxCases(int[] numCases) {
+size_t s = numCases.size();
+int maxincrease;
+int maxcase=0;
+int mincase= INT_MAX;
+int difference;
+
+
+
+for (int i=0;i<s;i++) {
+	
+	//maxcase = max(maxcase, numCases[i]);
+	mincase = min(mincase, numCases[i]);
+	index = i;
+	break;	
+	
+	for(int j = i+1; j< s; j++)
+	{
+		maxincrease = max(abs(numCases[i]) - abs(numCases[j]);		
+	}
+	
+}
+for(int i=index;i<s;i++)
+	{
+		maxcase = max(maxcase, numCases[i]);
+	}
+difference = maxcase - mincase;
+
+
+return maxincrease;
+}
+
+{
+sort(numCases.begin(), numCases.end());
+int start = 0;
+int end = numCases.size()-1;
+
+int mid = (start + end)/2;
+while (start <= end)
+	maxincrease -= max(0, maxCasesUtil(numCases, start++);
+	
+	if(start >= mid)
+		start = end;
+	
+
+
+}

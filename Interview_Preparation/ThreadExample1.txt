@@ -1,0 +1,39 @@
+std::mutex mu;
+std::condition_variable cd;
+int count = 1;
+
+
+PrintEven()
+{
+for (;count <= 10)
+{
+	std::lock<std::mutex> locker(mu);
+	cd.wait(return, [] { return (count % 2) == 0) };
+	cout << count << endl;
+	count++;
+	locker.unlock();
+	cd.notify_all();
+}
+
+}
+
+PrintOdd()
+{
+for (;count <= 10)
+{
+	std::lock<std::mutex> locker(mu);
+	cd.wait(return, [] { return (count % 2) == 1) };
+	cout << count << endl;
+	count++;
+	locker.unlock();
+	cd.notify_all();
+}
+}
+
+main()
+{
+thread1 (PrintEvent);
+thread2(PrintOdd);
+thread1.join();
+thread2.join();
+}

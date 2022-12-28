@@ -1,0 +1,72 @@
+
+template <typename T>
+class unique_ptr
+{
+private:
+T* ptr;
+int ref_count{};
+
+public:
+unique_ptr(T* a)
+{
+	
+	ptr = a;
+	ref_count++;
+}
+
+
+unique_ptr(const unique_ptr& ptrobj)
+{
+	
+	ptr = ptrobj.ptr;	
+	ref_count = ptrobj.ref_count;
+	
+	
+	ref_count++;
+}
+unique_ptr& operator= (unique_ptr& ptrobj)
+{
+	ptr = ptrobj.ptr;
+	ref_count = ptrobj.ref_count;
+	ref_count++;
+	
+	return *this;
+}
+
+~unique_ptr()
+{
+ref_count--;
+if(ref_count == 0)
+ delete ptr;
+}
+
+T& operator->()
+{
+	return *ptr;
+}
+
+T* operator*()
+{
+	return ptr;
+}
+
+};
+
+Class A
+{
+int a;
+public:
+	A(int a)
+	{
+	}
+	A() = delete;
+	
+};
+
+
+int main()
+{
+	unique_ptr<A> p;
+	unique_ptr<A> p1(p);
+	
+}

@@ -1,0 +1,31 @@
+BLOCK_MEM(ptr)((void*))((unsigned long) ptr+ sizeof(our node)
+
+	memoryblock* head
+
+void *malloc(int sz)
+{
+	void * mem;
+	size_t t = sz > sysconf(PAGESIZE)? sz: sysconf(PAGESIZE);
+	
+
+	
+	while(head)
+	{
+		if(head->size >= sizeof(block))
+		{
+			mem = BLOCK_MEM(head);
+			if(head->size == sz)
+			    return mem;
+		}
+		else
+		{
+			head = head->next;
+		}
+	}
+	
+}
+
+struct memoryblock {
+memoryblock * next, *prev;
+size = sizeof(memoryblock)
+}

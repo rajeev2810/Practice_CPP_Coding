@@ -1,0 +1,100 @@
+			A-200
+	B-120			C-60
+E-150			D-100     F-80
+
+There is an organization where individuals report to their managers. A manager can have any number of reportees. An underpaid manager is the one whose salary is less than the average salary of all its reportees. Find the total number of underpaid managers in the organization. 
+For example in the given image, C is underpaid as salary of C ($60) is less than the average of D and F ((100+80)/2) = 90, while A is not underpaid as its salary is greater than the average of B,C,E,D and F.
+
+struct Node {
+int id;
+int salary;
+Node* reportees;
+
+}
+
+int count_underpaidmanagers(Node* root)
+{
+Node* curr = root;
+map<string, double> averagereposal;
+int total_sal;
+double average;
+int rep_cnt=0;
+int underpaid_cnt = 0;
+Node * temp = curr;
+Node * prev  =
+curr = curr->reportees;
+
+	while(curr != nullptr)
+	{
+		count_underpaidmanagers(curr->reportees);
+		total_sal += curr->salary;
+		curr = curr->reportees;
+		
+		rep_cnt++;
+
+	}
+	map[temp->id] = total_sal / rep_cnt;
+	if (temp->salary < map[temp->id])
+		return underpaid_cnt++;
+	
+
+}
+
+Encoding the URL
+Check any restrictions in the OS
+Decode the URL back when we hit
+Mask the actual URL to hide details
+login / passwords to mask that as well
+standards which are followed for shortening the URL
+the response from the URL
+we may have to check the URL reponse if it is hit multiple times at the same time
+
+class A-200{
+virtual void test() = 0;
+}
+
+class B: A-200{
+
+}
+
+main()
+{
+	A* a = new B();
+	a->test();
+}
+
+Virtual Table
+
+A* ----> test vlookup[A::test, B::test]
+
+B* -----> test
+
+template<class T>
+
+
+template<int>
+
+
+char* encrypt(char * a)
+{
+	char* res = *(a+3);
+	return res;
+}
+
+auto fp = (*encrypt)(char*);
+
+modify((char*)fp(char*))
+
+{
+
+}
+
+libname = test
+target = ""
+
+INCLUDES: *.hpp
+
+LIBS: C:\apps\
+
+make -libname.obj
+

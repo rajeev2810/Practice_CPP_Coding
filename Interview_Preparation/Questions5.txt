@@ -1,0 +1,42 @@
+static int i = 0;
+static mutex a;
+static bool update= false;
+std::condition_variable c;
+
+void fun()
+{
+std::unique_lock<std::mutex> b;
+{
+a.wait(b, [](){
+
+return update = true;
+	
+};
+i++;
+}
+}
+
+class mutex{
+int a;
+public:
+	mutex(int x) {
+		
+	}
+	
+	lock()
+	{	
+		a = 1;
+		while(a)
+		{
+			sleep(100);
+		}
+	}
+	
+	unlock()
+	{
+		a= 0;		
+	}	
+
+}
+
+

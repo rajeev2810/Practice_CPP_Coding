@@ -1,0 +1,44 @@
+struct ListNode
+{
+	int val;
+	ListNode * next;
+	
+	ListNode():val(0), next (nullptr){
+	};
+	ListNode(int val): val(val), next(nullptr) {
+	};
+	ListNode(int val, ListNode* next): val(val), next(next) {
+	};
+	
+};
+
+class LinkedList
+{
+private:
+ListNode* root;
+	
+public:
+	LinkedList() : root(nullptr)
+	{
+	}
+	void InsertNode(int index, int data) {
+		int count = 0;
+		if(root == nullptr)
+			root = new ListNode(data);
+		
+		while(root != nullptr && count < index)
+		{
+			root = root->next;
+			count++;
+		}
+		
+		if(count == index)
+			root = new ListNode(data);
+		
+	}
+};
+
+int main()
+{
+	return 0;
+}
