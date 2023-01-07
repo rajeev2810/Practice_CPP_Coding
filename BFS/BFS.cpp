@@ -3,18 +3,16 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
+#include <queue>
+#include <map>
 
 using namespace std;
 
 class Graph {
 private:
-    vector<vector<int>> ver;
-    int V;
+    vector<vector<int>> ver{ 10 };
+    map<int, bool> visited;
 public:
-    Graph(int v) : V(v) {
-        ver.resize(V);
-    }
 
     void add_edges(int src, int dest) {
         ver[src].push_back(dest);
@@ -22,23 +20,21 @@ public:
 
     void BFS(int vertices)
     {
-        vector<bool> visited{};
-        visited.resize(V, false);
         visited[vertices] = true;
 
-        list<int> q;
-        q.push_back(vertices);
+        queue<int> q;
+        q.push(vertices);
 
         while (!q.empty()) {
             int s = q.front();
             cout << s << endl;
-            q.pop_front();
+            q.pop();
             for (auto adj : ver[vertices])
             {
                 if (!visited[adj])
                 {
                     visited[adj] = true;
-                    q.push_back(adj);
+                    q.push(adj);
                 }
             }
         }
@@ -47,7 +43,7 @@ public:
 
 int main()
 {
-    Graph g(4);
+    Graph g;
     g.add_edges(0, 1);
     g.add_edges(0, 2);
     g.add_edges(1, 2);
