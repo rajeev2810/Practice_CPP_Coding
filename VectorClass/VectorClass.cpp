@@ -2,19 +2,76 @@
 //
 
 #include <iostream>
+#include <string>
+
+using namespace std;
+
+template<typename T>
+class Vector {
+private:
+    size_t size;
+    size_t capacity;
+    T* arr;
+public:
+    Vector() : size(0), capacity(1), arr(new T[1]){
+
+    }
+
+    T& operator[](int index) {
+        return arr[index];
+    }
+
+    const T& operator[](int index) const {
+        return arr[index];
+    }
+
+    void push_back(const T& x) {
+        if (size == capacity) {
+            size_t newCapacity = 2 * capacity + 1;
+            if (newCapacity < size)
+                return;
+
+            T* newArray = new T[newCapacity];
+            for (int k = 0; k < size; ++k)
+                newArray[k] = std::move(arr[k]);
+
+            capacity = newCapacity;
+            std::swap(arr, newArray);
+            delete[] newArray;
+        }
+        arr[size++] = x;
+    }
+
+    void insert(size_t index, T data) {
+        if (size == capacity) {
+            push_back(data);
+        }
+        else {
+            arr[index] = data;
+            size++;
+        }
+    }
+
+    size_t length() const {
+        return size;
+    }
+};
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int n;
+    Vector<string> names;
+    cout << "How many names? " << flush;
+    cin >> n;
+    for (int i = 0; i < n; ++i)
+    {
+        cout << "\nEnter name #" << i << ": " << flush;
+        std::string aName;
+        cin >> aName;
+        names.push_back(aName);
+    }
+
+    for (int i = 0; i < names.length(); i++) {
+        cout << names[i] << endl;
+    }
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
