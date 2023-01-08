@@ -40,8 +40,7 @@ public:
                 op = pist; // update max increase in cases
             }
         }
-        return op; // return op 
-
+        return op; // return op
     }
 };
 

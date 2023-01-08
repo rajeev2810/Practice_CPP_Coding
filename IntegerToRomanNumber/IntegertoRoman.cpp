@@ -35,8 +35,10 @@ public:
             int div=pow(10,i);
             int req=z/div;            
             int val=req*div;           
-            if(mp[val]!="")ans+=mp[val];
-            else{
+            
+            if(mp[val]!="")
+                ans+=mp[val];
+            else {
                 if(div==1&&req>=5){
                     ans+=mp[5];
                     req-=5;
@@ -49,7 +51,8 @@ public:
                     ans+=mp[500];
                     req-=5;
                 }
-                while(req--)ans+=mp[div];
+                while(req--)
+                    ans+=mp[div];
             }
             z=z-val;
         }
