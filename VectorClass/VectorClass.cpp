@@ -65,7 +65,7 @@ int main()
     cin >> n;
     for (int i = 0; i < n; ++i)
     {
-        cout << "\nEnter name #" << i << ": " << flush;
+        cout << "\nEnter name #" << i+1 << ": " << flush;
         std::string aName;
         cin >> aName;
         names.push_back(aName);

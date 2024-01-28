@@ -53,7 +53,7 @@ public:
         return *this;
     }
 
-    int size() const {
+    size_t size() const {
         return m_size;
     }
 
@@ -72,15 +72,15 @@ public:
 };
 
 template<typename T>
-inline std::ostream& operator<< (std::ostream& cout, const Array<T>& arr)
+inline std::ostream& operator<< (std::ostream& out, const Array<T>& arr)
 {
-    cout << "[";
+    out << "[";
     for (int i = 0; i < arr.size(); i++) {
-        cout << arr[i] << " ";
+        out << arr[i] << " ";
     }
-    cout << "]";
+    out << "]";
 
-    return cout;
+    return out;
 }
 
 int main()
@@ -91,5 +91,6 @@ int main()
     a[2] = 30;
 
     std::cout << "a = " << a << std::endl;
+    std::cout << a[2] << std::endl;
 
 }

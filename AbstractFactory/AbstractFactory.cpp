@@ -12,7 +12,7 @@ class WinButton : public Button {
 public:
 	void Paint()
 	{
-		cout << "Win Button";
+		cout << "Win Button" << endl;
 	}
 };
 
@@ -21,7 +21,7 @@ class MacButton : public Button
 public:
 	void Paint()
 	{
-		cout << "Mac Button";
+		cout << "Mac Button" <<endl;
 	}
 };
 
@@ -54,6 +54,9 @@ int main()
 	Factory* f;
 
 	f = new WinFactory();
+	f->createButton()->Paint();
+
+	f = new MacFactory();
 	f->createButton()->Paint();
 
 	return 0;
