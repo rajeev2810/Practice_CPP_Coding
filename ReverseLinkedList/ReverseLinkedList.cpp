@@ -78,6 +78,30 @@ public:
 			cout << getNth(head, i) << "\t";
 		cout << "\n";
 	}
+
+	Node* deleteNodefromEnd(Node* head, int n)
+	{
+		int length = getCount(head);
+		int nodefromStart = length - n + 1;
+		Node* prev = NULL;
+		Node* temp = head;
+
+		for (int i = 0; i < nodefromStart; i++)
+		{
+			prev = temp;
+			temp = temp->next;
+		}
+		if (prev == NULL)
+		{
+			head = head->next;
+			return head;
+		}
+		else
+		{
+			prev->next = prev->next->next;
+			return head;
+		}
+	}
 };
 
 /* Driver program to test count function*/

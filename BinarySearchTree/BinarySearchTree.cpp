@@ -85,7 +85,7 @@ public:
                 temp = temp->right;
             }
         }
-        return nullptr;
+        return temp;
     }
     TreeNode* recursiveSearch(TreeNode* root, int key) {
         if (root == nullptr) {
