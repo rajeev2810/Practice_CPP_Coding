@@ -115,8 +115,8 @@ std::ostream& operator<<(std::ostream& cout, const my_string& obj)
 
 int main()
 {
-	my_string a("FirstName");
-	my_string b("LastName");
+	my_string a("Rajeev");
+	my_string b(" C");
 	my_string c = a + b;
 	std::cout << c;
 	return 0;
