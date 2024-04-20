@@ -57,6 +57,7 @@ public:
 		this->refCount = dyingObj.ref_count;
 
 		dyingObj.ptr = dyingObj.ref_count = nullptr; // clean the dying object
+		return *this;
 	}
 
 	unsigned int get_count() const
